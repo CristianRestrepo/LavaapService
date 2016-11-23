@@ -11,7 +11,9 @@ import co.com.lavapp.persistencia.dao.PromocionDAO;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -145,6 +147,38 @@ public class PromocionDAOImpl implements PromocionDAO {
             ConexionSQL.CerrarConexion();
         }
         return p;
+    }
+
+    @Override
+    public Promocion_TO consultarPromocionActiva() throws Exception {
+        Promocion_TO nuevaPromocion = new Promocion_TO();
+        Date fechaActual = new Date();
+        SimpleDateFormat sdft = new SimpleDateFormat("HH:mm:ss");
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        try {
+            try {
+                String sql = "SELECT idpromocion, fechainicio, fechafinal, porcentaje, horainicio, horafinal, nombre "
+                        + " FROM  public.promocion WHERE fechainicio >= '" + sdf.format(fechaActual) + "' and fechafinal >  '" + sdf.format(fechaActual) + "'"
+                        + " AND horainicio >= '" + sdft.format(fechaActual) + "' AND horafinal > '" + sdft.format(fechaActual) + "'";
+                ResultSet rs = st.executeQuery(sql);
+                while (rs.next()) {
+                    nuevaPromocion = new Promocion_TO(rs.getInt(1),
+                            rs.getDate(2),
+                            rs.getDate(3),
+                            rs.getInt(4),
+                            rs.getString(5),
+                            rs.getString(6),
+                            rs.getString(7));
+                }
+            } catch (SQLException e) {
+                throw e;
+            }
+        } catch (Exception e) {
+            throw e;
+        } finally {
+            ConexionSQL.CerrarConexion();
+        }
+        return nuevaPromocion;
     }
 
 }

@@ -94,7 +94,7 @@ public class PedidoDAOImpl implements PedidoDAO {
                         + "horariofinal_idhorario, p.idestado, idproveedor, "
                         + "fechaentrega, direccionrecogida, direccionentrega, "
                         + "fecharecogida, quienentrega, quienrecibe, "
-                        + "idbarrios_recogida, idbarrios_entrega, idasesor, e.nombre, idformapago, idestadopago "
+                        + "idbarrios_recogida, idbarrios_entrega, idasesor, e.nombre, idformapago, idestadopago, costo"
                         + "from public.pedido as p, public.estado as e WHERE "
                         + "p.idusuario = " + usuario.getIdUsuario() + " and e.idestado = p.idestado "
                         + "ORDER BY fechaentrega DESC, fecharecogida DESC;";
@@ -132,7 +132,8 @@ public class PedidoDAOImpl implements PedidoDAO {
                             new Barrio_TO(rs.getInt(15)),
                             new Usuario_TO(rs.getInt(16)),
                             new FormaPago_TO(rs.getInt(18)),
-                            new EstadoPago_TO(rs.getInt(19))));
+                            new EstadoPago_TO(rs.getInt(19)),
+                            rs.getDouble(20)));
                 }
             } catch (SQLException e) {
                 throw e;
@@ -156,7 +157,7 @@ public class PedidoDAOImpl implements PedidoDAO {
                         + "horariofinal_idhorario, p.idestado, idproveedor, "
                         + "fechaentrega, direccionrecogida, direccionentrega, "
                         + "fecharecogida, quienentrega, quienrecibe, "
-                        + "idbarrios_recogida, idbarrios_entrega, idasesor, e.nombre, idformapago, idestadopago "
+                        + "idbarrios_recogida, idbarrios_entrega, idasesor, e.nombre, idformapago, idestadopago, costo "
                         + "from public.pedido as p, public.estado as e WHERE "
                         + "p.idasesor = " + usuario.getIdUsuario() + " and p.idestado = 3 and e.idestado = p.idestado "
                         + "ORDER BY fechaentrega DESC, fecharecogida DESC";
@@ -194,7 +195,8 @@ public class PedidoDAOImpl implements PedidoDAO {
                             new Barrio_TO(rs.getInt(15)),
                             new Usuario_TO(rs.getInt(16)),
                             new FormaPago_TO(rs.getInt(18)),
-                            new EstadoPago_TO(rs.getInt(19))));
+                            new EstadoPago_TO(rs.getInt(19)),
+                            rs.getDouble(20)));
                 }
             } catch (SQLException e) {
                 throw e;
@@ -218,7 +220,7 @@ public class PedidoDAOImpl implements PedidoDAO {
                         + "horariofinal_idhorario, p.idestado, idproveedor, "
                         + "fechaentrega, direccionrecogida, direccionentrega, "
                         + "fecharecogida, quienentrega, quienrecibe, "
-                        + "idbarrios_recogida, idbarrios_entrega, idasesor, e.nombre, idformapago, idestadopago "
+                        + "idbarrios_recogida, idbarrios_entrega, idasesor, e.nombre, idformapago, idestadopago, costo "
                         + "from public.pedido as p, public.estado as e WHERE "
                         + "p.idasesor = " + usuario.getIdUsuario() + " and p.idestado = 7 and e.idestado = p.idestado "
                         + "ORDER BY fechaentrega DESC, fecharecogida DESC;";
@@ -256,7 +258,8 @@ public class PedidoDAOImpl implements PedidoDAO {
                             new Barrio_TO(rs.getInt(15)),
                             new Usuario_TO(rs.getInt(16)),
                             new FormaPago_TO(rs.getInt(18)),
-                            new EstadoPago_TO(rs.getInt(19))));
+                            new EstadoPago_TO(rs.getInt(19)),
+                            rs.getDouble(20)));
                 }
             } catch (SQLException e) {
                 throw e;
@@ -299,7 +302,7 @@ public class PedidoDAOImpl implements PedidoDAO {
                         + "horariofinal_idhorario, p.idestado, idproveedor, "
                         + "fechaentrega, direccionrecogida, direccionentrega, "
                         + "fecharecogida, quienentrega, quienrecibe, "
-                        + "idbarrios_recogida, idbarrios_entrega, idasesor, e.nombre, idformapago, idestadopago "
+                        + "idbarrios_recogida, idbarrios_entrega, idasesor, e.nombre, idformapago, idestadopago, costo "
                         + "from public.pedido as p, public.estado as e WHERE "
                         + "p.idasesor = " + usuario.getIdUsuario() + " and p.idestado in (3,7) and e.idestado = p.idestado and "
                         + "fecharecogida = '" + hoy + "'  "
@@ -338,7 +341,8 @@ public class PedidoDAOImpl implements PedidoDAO {
                             new Barrio_TO(rs.getInt(15)),
                             new Usuario_TO(rs.getInt(16)),
                             new FormaPago_TO(rs.getInt(18)),
-                            new EstadoPago_TO(rs.getInt(19))));
+                            new EstadoPago_TO(rs.getInt(19)),
+                            rs.getDouble(20)));
                 }
 
                 try {
@@ -347,7 +351,7 @@ public class PedidoDAOImpl implements PedidoDAO {
                             + "horariofinal_idhorario, p.idestado, idproveedor, "
                             + "fechaentrega, direccionrecogida, direccionentrega, "
                             + "fecharecogida, quienentrega, quienrecibe, "
-                            + "idbarrios_recogida, idbarrios_entrega, idasesor, e.nombre, idformapago, idestadopago "
+                            + "idbarrios_recogida, idbarrios_entrega, idasesor, e.nombre, idformapago, idestadopago, costo "
                             + "from public.pedido as p, public.estado as e WHERE "
                             + "p.idasesor = " + usuario.getIdUsuario() + " and p.idestado in (3,7) and e.idestado = p.idestado and "
                             + "fechaentrega = '" + hoy + "'  "
@@ -386,7 +390,8 @@ public class PedidoDAOImpl implements PedidoDAO {
                                 new Barrio_TO(rs2.getInt(15)),
                                 new Usuario_TO(rs2.getInt(16)),
                                 new FormaPago_TO(rs2.getInt(18)),
-                                new EstadoPago_TO(rs2.getInt(19))));
+                                new EstadoPago_TO(rs2.getInt(19)),
+                                rs.getDouble(20)));
                     }
                 } catch (SQLException e) {
                     throw e;
@@ -415,7 +420,7 @@ public class PedidoDAOImpl implements PedidoDAO {
                         + "p.horariofinal_idhorario, p.idestado, p.idproveedor, "
                         + "p.fechaentrega, p.direccionrecogida, p.direccionentrega, "
                         + "p.fecharecogida, p.quienentrega, p.quienrecibe, "
-                        + "p.idbarrios_recogida, p.idbarrios_entrega, h.horario , h1.horario, p.idasesor, p.idformapago, p.idestadopago "
+                        + "p.idbarrios_recogida, p.idbarrios_entrega, h.horario , h1.horario, p.idasesor, p.idformapago, p.idestadopago, p.costo "
                         + "from public.pedido as p, public.horario as h, public.horario as h1 WHERE "
                         + "p.idpedido = '" + pedido.getIdPedido() + "' and p.horarioinicio_idhorario = h.idhorario and p.horariofinal_idhorario = h1.idhorario";
                 ResultSet rs = st.executeQuery(sql);
@@ -452,7 +457,8 @@ public class PedidoDAOImpl implements PedidoDAO {
                             new Barrio_TO(rs.getInt(15)),
                             new Usuario_TO(rs.getInt(18)),
                             new FormaPago_TO(rs.getInt(19)),
-                            new EstadoPago_TO(rs.getInt(20)));
+                            new EstadoPago_TO(rs.getInt(20)),
+                            rs.getDouble(21));
                 }
             } catch (SQLException e) {
                 System.out.println("error en sentencia de SQL y en insercion de datos del SQL al objeto List: " + e.getMessage());
@@ -494,7 +500,7 @@ public class PedidoDAOImpl implements PedidoDAO {
                 String sql = "SELECT idpedido, idusuario, fechainicio, horarioinicio_idhorario, "
                         + "horariofinal_idhorario, idestado, idproveedor, fechaentrega, direccionrecogida, "
                         + "direccionentrega,fecharecogida, quienentrega, quienrecibe, idbarrios_recogida, "
-                        + "idbarrios_entrega, idasesor, idformapago, idestadopago FROM public.pedido ORDER BY fechaentrega DESC, fecharecogida DESC";
+                        + "idbarrios_entrega, idasesor, idformapago, idestadopago, costo FROM public.pedido ORDER BY fechaentrega DESC, fecharecogida DESC";
                 ResultSet rs = st.executeQuery(sql);
                 while (rs.next()) {
                     pedidos.add(new Pedido_TO(rs.getInt(1),
@@ -514,7 +520,8 @@ public class PedidoDAOImpl implements PedidoDAO {
                             new Barrio_TO(rs.getInt(15)),
                             new Usuario_TO(rs.getInt(16)),
                             new FormaPago_TO(rs.getInt(17)),
-                            new EstadoPago_TO(rs.getInt(18))));
+                            new EstadoPago_TO(rs.getInt(18)),
+                            rs.getDouble(19)));
                 }
             } catch (SQLException e) {
                 throw e;
@@ -537,7 +544,7 @@ public class PedidoDAOImpl implements PedidoDAO {
                         + "horariofinal_idhorario, idestado, idproveedor, "
                         + "fechaentrega, direccionrecogida, direccionentrega, "
                         + "fecharecogida, quienentrega, quienrecibe, "
-                        + "idbarrios_recogida, idbarrios_entrega, idasesor, idformapago, idestadopago "
+                        + "idbarrios_recogida, idbarrios_entrega, idasesor, idformapago, idestadopago, costo "
                         + "FROM public.pedido as pedido "
                         + "WHERE pedido.idproveedor = '" + proveedor.getIdProveedor() + "' "
                         + "ORDER BY fechaentrega DESC, fecharecogida DESC";
@@ -560,7 +567,8 @@ public class PedidoDAOImpl implements PedidoDAO {
                             new Barrio_TO(rs.getInt(15)),
                             new Usuario_TO(rs.getInt(16)),
                             new FormaPago_TO(rs.getInt(17)),
-                            new EstadoPago_TO(rs.getInt(18))));
+                            new EstadoPago_TO(rs.getInt(18)),
+                            rs.getDouble(19)));
                 }
             } catch (SQLException e) {
                 throw e;
@@ -618,6 +626,7 @@ public class PedidoDAOImpl implements PedidoDAO {
                         + " idasesor = '" + pedido.getAsesor().getIdUsuario() + "',"
                         + " idformapago = '" + pedido.getFormaPago().getIdFormaPago() + "',"
                         + " idestadopago = '" + pedido.getEstadoPago().getIdEstadoPago() + "',"
+                        + " costo = '" + pedido.getCosto() + "'"
                         + " WHERE idpedido = " + pedido.getIdPedido() + " ;";
                 st.execute(sql);
             } catch (Exception e) {
@@ -652,7 +661,8 @@ public class PedidoDAOImpl implements PedidoDAO {
                         + " idbarrios_recogida,"
                         + " idbarrios_entrega,"
                         + " idformapago,"
-                        + " idestadopago)"
+                        + " idestadopago,"
+                        + " costo)"
                         + " VALUES ('" + pedido.getUsuario().getIdUsuario() + "',"
                         + " '" + pedido.getFechaInicio() + "',"
                         + " '" + pedido.getHoraInicio().getIdHorario() + "',"
@@ -667,7 +677,8 @@ public class PedidoDAOImpl implements PedidoDAO {
                         + " '" + pedido.getBarrioRecogida().getIdBarrios() + "',"
                         + " '" + pedido.getBarrioEntrega().getIdBarrios() + "',"
                         + " '" + pedido.getFormaPago().getIdFormaPago() + "',"
-                        + " '" + pedido.getEstadoPago().getIdEstadoPago() + "')";
+                        + " '" + pedido.getEstadoPago().getIdEstadoPago() + "',"
+                        + " '" + pedido.getCosto() + "')";
 
                 st.execute(sql);
             } catch (Exception e) {
@@ -720,7 +731,7 @@ public class PedidoDAOImpl implements PedidoDAO {
                             + "p.horariofinal_idhorario, p.idestado, p.idproveedor, "
                             + "p.fechaentrega, p.direccionrecogida, p.direccionentrega, "
                             + "p.fecharecogida, p.quienentrega, p.quienrecibe, "
-                            + "p.idbarrios_recogida, p.idbarrios_entrega, p.idasesor, p.idformapago, p.idestadopago "
+                            + "p.idbarrios_recogida, p.idbarrios_entrega, p.idasesor, p.idformapago, p.idestadopago, p.costo "
                             + "FROM public.pedido as p, public.usuario as u, public.barrio as b "
                             + "WHERE p.idusuario = u.idusuario and (p.idbarrios_recogida = b.idbarrios or p.idbarrios_entrega = b.idbarrios) AND "
                             + "(p.direccionrecogida LIKE '%" + valor + "%' or p.direccionentrega LIKE '" + valor + "' or "
@@ -738,7 +749,7 @@ public class PedidoDAOImpl implements PedidoDAO {
                             + "p.horariofinal_idhorario, p.idestado, p.idproveedor, "
                             + "p.fechaentrega, p.direccionrecogida, p.direccionentrega, "
                             + "p.fecharecogida, p.quienentrega, p.quienrecibe, "
-                            + "p.idbarrios_recogida, p.idbarrios_entrega, p.idasesor, p.idformapago, p.idestadopago "
+                            + "p.idbarrios_recogida, p.idbarrios_entrega, p.idasesor, p.idformapago, p.idestadopago, p.costo "
                             + "FROM public.pedido as p, public.usuario as u, public.barrio as b "
                             + "WHERE p.idusuario = u.idusuario and (p.idbarrios_recogida = b.idbarrios or p.idbarrios_entrega = b.idbarrios) AND "
                             + "(p.direccionrecogida LIKE '%" + valor + "%' or p.direccionentrega LIKE '%" + valor + "%' or "
@@ -756,7 +767,7 @@ public class PedidoDAOImpl implements PedidoDAO {
                             + "p.horariofinal_idhorario, p.idestado, p.idproveedor, "
                             + "p.fechaentrega, p.direccionrecogida, p.direccionentrega, "
                             + "p.fecharecogida, p.quienentrega, p.quienrecibe, "
-                            + "p.idbarrios_recogida, p.idbarrios_entrega, p.idasesor, p.idformapago, p.idestadopago "
+                            + "p.idbarrios_recogida, p.idbarrios_entrega, p.idasesor, p.idformapago, p.idestadopago, p.costo "
                             + "FROM public.pedido as p, public.usuario as u, public.barrio as b "
                             + "WHERE p.idusuario = u.idusuario and (p.idbarrios_recogida = b.idbarrios or p.idbarrios_entrega = b.idbarrios) AND "
                             + "(p.direccionrecogida LIKE '%" + valor + "%' or p.direccionentrega LIKE '%" + valor + "%' or "
@@ -787,7 +798,8 @@ public class PedidoDAOImpl implements PedidoDAO {
                             new Barrio_TO(rs.getInt(15)),
                             new Usuario_TO(rs.getInt(16)),
                             new FormaPago_TO(rs.getInt(17)),
-                            new EstadoPago_TO(rs.getInt(18))));
+                            new EstadoPago_TO(rs.getInt(18)),
+                            rs.getDouble(19)));
                 }
             } catch (SQLException e) {
                 throw e;
@@ -810,7 +822,7 @@ public class PedidoDAOImpl implements PedidoDAO {
                         + "p.horariofinal_idhorario, p.idestado, p.idproveedor, "
                         + "p.fechaentrega, p.direccionrecogida, p.direccionentrega, "
                         + "p.fecharecogida, p.quienentrega, p.quienrecibe, "
-                        + "p.idbarrios_recogida, p.idbarrios_entrega, h.horario, h1.horario, p.idasesor, p.idformapago, p.idestadopago "
+                        + "p.idbarrios_recogida, p.idbarrios_entrega, h.horario, h1.horario, p.idasesor, p.idformapago, p.idestadopago, p.costo "
                         + "from public.pedido as p, public.horario as h, public.horario as h1 WHERE "
                         + "p.idpedido = '" + pedido.getIdPedido() + "' and p.horarioinicio_idhorario = h.idhorario and p.horariofinal_idhorario = h1.idhorario";
                 ResultSet rs = st.executeQuery(sql);
@@ -833,7 +845,8 @@ public class PedidoDAOImpl implements PedidoDAO {
                             new Barrio_TO(rs.getInt(15)),
                             new Usuario_TO(rs.getInt(18)),
                             new FormaPago_TO(rs.getInt(19)),
-                            new EstadoPago_TO(rs.getInt(20)));
+                            new EstadoPago_TO(rs.getInt(20)),
+                            rs.getDouble(21));
                 }
             } catch (SQLException e) {
                 System.out.println("error en sentencia de SQL y en insercion de datos del SQL al objeto List: " + e.getMessage());
@@ -859,7 +872,7 @@ public class PedidoDAOImpl implements PedidoDAO {
                         + "horariofinal_idhorario, idestado, idproveedor, "
                         + "fechaentrega, direccionrecogida, direccionentrega, "
                         + "fecharecogida, quienentrega, quienrecibe, "
-                        + "idbarrios_recogida, idbarrios_entrega, idasesor, idformapago, idestadopago "
+                        + "idbarrios_recogida, idbarrios_entrega, idasesor, idformapago, idestadopago, costo "
                         + "FROM public.pedido as pedido "
                         + "WHERE fechaentrega = '" + sdf.format(fechaActual) + "'";
                 ResultSet rs = st.executeQuery(sql);
@@ -881,7 +894,8 @@ public class PedidoDAOImpl implements PedidoDAO {
                             new Barrio_TO(rs.getInt(15)),
                             new Usuario_TO(rs.getInt(16)),
                             new FormaPago_TO(rs.getInt(17)),
-                            new EstadoPago_TO(rs.getInt(18))));
+                            new EstadoPago_TO(rs.getInt(18)),
+                            rs.getDouble(19)));
                 }
             } catch (SQLException e) {
                 throw e;
@@ -906,7 +920,7 @@ public class PedidoDAOImpl implements PedidoDAO {
                         + "horariofinal_idhorario, idestado, idproveedor, "
                         + "fechaentrega, direccionrecogida, direccionentrega, "
                         + "fecharecogida, quienentrega, quienrecibe, "
-                        + "idbarrios_recogida, idbarrios_entrega, idasesor, idformapago, idestadopago "
+                        + "idbarrios_recogida, idbarrios_entrega, idasesor, idformapago, idestadopago, costo "
                         + "FROM public.pedido as pedido "
                         + "WHERE fecharecogida = '" + sdf.format(fechaActual) + "'";
                 ResultSet rs = st.executeQuery(sql);
@@ -928,7 +942,8 @@ public class PedidoDAOImpl implements PedidoDAO {
                             new Barrio_TO(rs.getInt(15)),
                             new Usuario_TO(rs.getInt(16)),
                             new FormaPago_TO(rs.getInt(17)),
-                            new EstadoPago_TO(rs.getInt(18))));
+                            new EstadoPago_TO(rs.getInt(18)),
+                            rs.getDouble(19)));
                 }
             } catch (SQLException e) {
                 throw e;
@@ -951,7 +966,7 @@ public class PedidoDAOImpl implements PedidoDAO {
                         + "horariofinal_idhorario, idestado, idproveedor, "
                         + "fechaentrega, direccionrecogida, direccionentrega, "
                         + "fecharecogida, quienentrega, quienrecibe, "
-                        + "idbarrios_recogida, idbarrios_entrega, idasesor, idformapago, idestadopago "
+                        + "idbarrios_recogida, idbarrios_entrega, idasesor, idformapago, idestadopago, costo "
                         + "FROM public.pedido as pedido "
                         + "WHERE idusuario = '" + usuario.getIdUsuario() + "' AND idestado = 5";
                 ResultSet rs = st.executeQuery(sql);
@@ -973,7 +988,8 @@ public class PedidoDAOImpl implements PedidoDAO {
                             new Barrio_TO(rs.getInt(15)),
                             new Usuario_TO(rs.getInt(16)),
                             new FormaPago_TO(rs.getInt(17)),
-                            new EstadoPago_TO(rs.getInt(18))));
+                            new EstadoPago_TO(rs.getInt(18)),
+                            rs.getDouble(19)));
                 }
             } catch (SQLException e) {
                 throw e;
@@ -996,7 +1012,7 @@ public class PedidoDAOImpl implements PedidoDAO {
                         + "horariofinal_idhorario, idestado, idproveedor, "
                         + "fechaentrega, direccionrecogida, direccionentrega, "
                         + "fecharecogida, quienentrega, quienrecibe, "
-                        + "idbarrios_recogida, idbarrios_entrega, idasesor, idformapago, idestadopago "
+                        + "idbarrios_recogida, idbarrios_entrega, idasesor, idformapago, idestadopago, costo "
                         + "FROM public.pedido as pedido "
                         + "WHERE idusuario = '" + usuario.getIdUsuario() + "' AND idestado = 7";
                 ResultSet rs = st.executeQuery(sql);
@@ -1018,7 +1034,8 @@ public class PedidoDAOImpl implements PedidoDAO {
                             new Barrio_TO(rs.getInt(15)),
                             new Usuario_TO(rs.getInt(16)),
                             new FormaPago_TO(rs.getInt(17)),
-                            new EstadoPago_TO(rs.getInt(18))));
+                            new EstadoPago_TO(rs.getInt(18)),
+                            rs.getDouble(19)));
                 }
             } catch (SQLException e) {
                 throw e;

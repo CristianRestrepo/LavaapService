@@ -23,8 +23,7 @@ public interface CostoDAO {
 
     public Costo_TO consultarCosto(Costo_TO costo) throws Exception;
 
-    public int consultarCostoPedido(Pedido_TO pedido) throws Exception;
+    public double consultarCostoPedido(Pedido_TO pedido) throws Exception;
 
     public Costo_TO consultarCostoSubProducto(SubProducto_TO subproducto) throws Exception;
-
 }

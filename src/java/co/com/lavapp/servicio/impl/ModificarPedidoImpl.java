@@ -52,8 +52,8 @@ public class ModificarPedidoImpl implements ModificarPedido {
             @QueryParam("idBarrios_entrega") int idBarriosEntrega,
             @QueryParam("idAsesor") int idAsesor,
             @QueryParam("idFormaPago") int idFormaPago,
-            @QueryParam("idEstadoPago") int idEstadoPago
-    ) throws Exception {
+            @QueryParam("idEstadoPago") int idEstadoPago,          
+            @QueryParam("costo") double costo) throws Exception {
         
         SimpleDateFormat formato = new SimpleDateFormat("yyyy-MM-dd");
         PedidoDAOImpl pedidoDAO = new PedidoDAOImpl();
@@ -85,7 +85,8 @@ public class ModificarPedidoImpl implements ModificarPedido {
                 new Barrio_TO(idBarriosEntrega),
                 new Usuario_TO(idAsesor),
                 new FormaPago_TO(idFormaPago),
-                new EstadoPago_TO(idEstadoPago));
+                new EstadoPago_TO(idEstadoPago),
+                costo);
         
         return pedidoDAO.modificarPedido(pedidoModelo);
         

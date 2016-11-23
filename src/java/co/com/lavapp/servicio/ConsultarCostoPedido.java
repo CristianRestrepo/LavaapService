@@ -11,6 +11,6 @@ package co.com.lavapp.servicio;
  */
 public interface ConsultarCostoPedido {
     
-    public int consultarCostoPedido(int idPedido) throws Exception;
+    public double consultarCostoPedido(int idPedido) throws Exception;
     
 }

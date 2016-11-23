@@ -30,6 +30,7 @@ public interface ModificarPedido {
             int idBarriosEntrega,
             int idAsesor,
             int idFormaPago,
-            int idEstadoPago) throws Exception;
+            int idEstadoPago,
+            double costo) throws Exception;
     
 }

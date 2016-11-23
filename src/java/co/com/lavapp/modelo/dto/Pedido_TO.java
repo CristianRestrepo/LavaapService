@@ -140,6 +140,8 @@ public class Pedido_TO {
      * Columna idasesor
      */
     private EstadoPago_TO estadoPago;
+    
+    private double costo;
     //Constructores
     public Pedido_TO() {
     }
@@ -149,7 +151,7 @@ public class Pedido_TO {
         this.idPedido = idPedido;
     }
 
-    public Pedido_TO(int idPedido, Usuario_TO usuario, Date fechaInicio, Horario_TO horaInicio, Horario_TO horaFinal, Estado_TO estado, Proveedor_TO proveedor, Date fechaEntrega, String direccionEntrega, String direccionRecogida, Date fechaRecogida, String quienEntrega, String quienRecibe, Barrio_TO barrioRecogida, Barrio_TO barrioEntrega, Usuario_TO asesor, FormaPago_TO formaPago, EstadoPago_TO estadoPago) {
+    public Pedido_TO(int idPedido, Usuario_TO usuario, Date fechaInicio, Horario_TO horaInicio, Horario_TO horaFinal, Estado_TO estado, Proveedor_TO proveedor, Date fechaEntrega, String direccionEntrega, String direccionRecogida, Date fechaRecogida, String quienEntrega, String quienRecibe, Barrio_TO barrioRecogida, Barrio_TO barrioEntrega, Usuario_TO asesor, FormaPago_TO formaPago, EstadoPago_TO estadoPago, double costo) {
         this.idPedido = idPedido;
         this.usuario = usuario;
         this.fechaInicio = fechaInicio;
@@ -168,9 +170,10 @@ public class Pedido_TO {
         this.asesor = asesor;
         this.formaPago = formaPago;
         this.estadoPago = estadoPago;
+        this.costo = costo;
     }
 
-    public Pedido_TO(int idPedido, Usuario_TO usuario, Date fechaInicio, String fechaInicioString, Horario_TO horaInicio, Horario_TO horaFinal, Estado_TO estado, Proveedor_TO proveedor, Date fechaEntrega, String fechaEntregaString, String direccionEntrega, String direccionRecogida, String fechaRecogidaString, Date fechaRecogida, String quienEntrega, String quienRecibe, Barrio_TO barrioRecogida, Barrio_TO barrioEntrega, Usuario_TO asesor, FormaPago_TO formaPago, EstadoPago_TO estadoPago) {
+    public Pedido_TO(int idPedido, Usuario_TO usuario, Date fechaInicio, String fechaInicioString, Horario_TO horaInicio, Horario_TO horaFinal, Estado_TO estado, Proveedor_TO proveedor, Date fechaEntrega, String fechaEntregaString, String direccionEntrega, String direccionRecogida, String fechaRecogidaString, Date fechaRecogida, String quienEntrega, String quienRecibe, Barrio_TO barrioRecogida, Barrio_TO barrioEntrega, Usuario_TO asesor, FormaPago_TO formaPago, EstadoPago_TO estadoPago, double costo) {
         this.idPedido = idPedido;
         this.usuario = usuario;
         this.fechaInicio = fechaInicio;
@@ -192,9 +195,10 @@ public class Pedido_TO {
         this.asesor = asesor;
         this.formaPago = formaPago;
         this.estadoPago = estadoPago;
+        this.costo = costo;
     }
 
-    public Pedido_TO(Usuario_TO usuario, Date fechaInicio, String fechaInicioString, Horario_TO horaInicio, Horario_TO horaFinal, Estado_TO estado, Proveedor_TO proveedor, Date fechaEntrega, String fechaEntregaString, String direccionEntrega, String direccionRecogida, String fechaRecogidaString, Date fechaRecogida, String quienEntrega, String quienRecibe, Barrio_TO barrioRecogida, Barrio_TO barrioEntrega, Usuario_TO asesor, FormaPago_TO formaPago, EstadoPago_TO estadoPago) {
+    public Pedido_TO(Usuario_TO usuario, Date fechaInicio, String fechaInicioString, Horario_TO horaInicio, Horario_TO horaFinal, Estado_TO estado, Proveedor_TO proveedor, Date fechaEntrega, String fechaEntregaString, String direccionEntrega, String direccionRecogida, String fechaRecogidaString, Date fechaRecogida, String quienEntrega, String quienRecibe, Barrio_TO barrioRecogida, Barrio_TO barrioEntrega, Usuario_TO asesor, FormaPago_TO formaPago, EstadoPago_TO estadoPago, double costo) {
         this.usuario = usuario;
         this.fechaInicio = fechaInicio;
         this.fechaInicioString = fechaInicioString;
@@ -215,9 +219,10 @@ public class Pedido_TO {
         this.asesor = asesor;
         this.formaPago = formaPago;
         this.estadoPago = estadoPago;
+        this.costo = costo;
     }  
    
-    public Pedido_TO(int idPedido, Usuario_TO usuario, String fechaInicioString, Horario_TO horaInicio, Horario_TO horaFinal, Estado_TO estado, Proveedor_TO proveedor, String fechaEntregaString, String direccionEntrega, String direccionRecogida, String fechaRecogidaString, String quienEntrega, String quienRecibe, Barrio_TO barrioRecogida, Barrio_TO barrioEntrega, Usuario_TO asesor, FormaPago_TO formaPago, EstadoPago_TO estadoPago) {
+    public Pedido_TO(int idPedido, Usuario_TO usuario, String fechaInicioString, Horario_TO horaInicio, Horario_TO horaFinal, Estado_TO estado, Proveedor_TO proveedor, String fechaEntregaString, String direccionEntrega, String direccionRecogida, String fechaRecogidaString, String quienEntrega, String quienRecibe, Barrio_TO barrioRecogida, Barrio_TO barrioEntrega, Usuario_TO asesor, FormaPago_TO formaPago, EstadoPago_TO estadoPago, double costo) {
         this.idPedido = idPedido;
         this.usuario = usuario;
         this.fechaInicioString = fechaInicioString;
@@ -236,9 +241,10 @@ public class Pedido_TO {
         this.asesor = asesor;
         this.formaPago = formaPago;
         this.estadoPago = estadoPago;
+        this.costo = costo;
     } 
 
-    public Pedido_TO(Usuario_TO usuario, Date fechaInicio, Horario_TO horaInicio, Horario_TO horaFinal, Estado_TO estado, Date fechaEntrega, String direccionEntrega, String direccionRecogida, Date fechaRecogida, String quienEntrega, String quienRecibe, Barrio_TO barrioRecogida, Barrio_TO barrioEntrega,Usuario_TO asesor, FormaPago_TO formaPago, EstadoPago_TO estadoPago) {
+    public Pedido_TO(Usuario_TO usuario, Date fechaInicio, Horario_TO horaInicio, Horario_TO horaFinal, Estado_TO estado, Date fechaEntrega, String direccionEntrega, String direccionRecogida, Date fechaRecogida, String quienEntrega, String quienRecibe, Barrio_TO barrioRecogida, Barrio_TO barrioEntrega,Usuario_TO asesor, FormaPago_TO formaPago, EstadoPago_TO estadoPago, double costo) {
         this.usuario = usuario;
         this.fechaInicio = fechaInicio;
         this.horaInicio = horaInicio;
@@ -255,6 +261,7 @@ public class Pedido_TO {
         this.asesor = asesor;
         this.formaPago = formaPago;
         this.estadoPago = estadoPago;
+        this.costo = costo;
     }
     
     
@@ -427,6 +434,15 @@ public class Pedido_TO {
     public void setEstadoPago(EstadoPago_TO estadoPago) {
         this.estadoPago = estadoPago;
     }
+
+    public double getCosto() {
+        return costo;
+    }
+
+    public void setCosto(double costo) {
+        this.costo = costo;
+    }
+    
 
     @Override
     public String toString() {

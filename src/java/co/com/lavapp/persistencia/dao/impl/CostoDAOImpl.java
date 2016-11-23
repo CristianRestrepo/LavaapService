@@ -45,8 +45,8 @@ public class CostoDAOImpl implements CostoDAO {
     }
 
     @Override
-    public int consultarCostoPedido(Pedido_TO pedido) throws Exception {
-        int costo = 0;
+    public double consultarCostoPedido(Pedido_TO pedido) throws Exception {
+       double costo = 0;
         try {
             try {
                 String sql = "SELECT sum(costo.valor) from public.costo as costo, "
@@ -59,7 +59,7 @@ public class CostoDAOImpl implements CostoDAO {
                         + "costo.idsubproducto = subproducto.idsubproducto";
                 ResultSet rs = st.executeQuery(sql);
                 while (rs.next()) {
-                    costo = rs.getInt(1);
+                    costo = rs.getDouble(1);
                 }
             } catch (SQLException e) {
                 throw e;
@@ -81,7 +81,7 @@ public class CostoDAOImpl implements CostoDAO {
                         + " WHERE costo.idsubproducto = " + subproducto.getIdSubProducto() + "";
                 ResultSet rs = st.executeQuery(sql);
                 while (rs.next()) {
-                    costo = new Costo_TO(rs.getInt(1), rs.getInt(2), new SubProducto_TO(rs.getInt(3)), new Zona_TO(rs.getInt(4)));
+                    costo = new Costo_TO(rs.getInt(1), rs.getDouble(2), new SubProducto_TO(rs.getInt(3)), new Zona_TO(rs.getInt(4)));
                 }
             } catch (SQLException e) {
                 throw e;
@@ -103,7 +103,7 @@ public class CostoDAOImpl implements CostoDAO {
                         + " WHERE costo.idCosto = " + costo.getIdCosto() + "";
                 ResultSet rs = st.executeQuery(sql);
                 while (rs.next()) {
-                    nuevocosto = new Costo_TO(rs.getInt(1), rs.getInt(2), new SubProducto_TO(rs.getInt(3)), new Zona_TO(rs.getInt(4)));
+                    nuevocosto = new Costo_TO(rs.getInt(1), rs.getDouble(2), new SubProducto_TO(rs.getInt(3)), new Zona_TO(rs.getInt(4)));
                 }
             } catch (SQLException e) {
                 throw e;

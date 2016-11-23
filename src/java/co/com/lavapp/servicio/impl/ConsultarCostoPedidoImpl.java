@@ -27,7 +27,7 @@ public class ConsultarCostoPedidoImpl implements ConsultarCostoPedido{
     @GET
     @Produces(MediaType.TEXT_PLAIN)
     @Override
-    public int consultarCostoPedido(@QueryParam("idPedido") int idPedido) throws Exception {
+    public double consultarCostoPedido(@QueryParam("idPedido") int idPedido) throws Exception {
         Pedido_TO pedido = new Pedido_TO(idPedido);
         CostoDAO costoDao = new CostoDAOImpl();
         return costoDao.consultarCostoPedido(pedido);

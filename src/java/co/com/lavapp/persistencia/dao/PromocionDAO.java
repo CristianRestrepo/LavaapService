@@ -15,6 +15,7 @@ import java.util.List;
 public interface PromocionDAO {
     
     public List<Promocion_TO> consultarPromociones() throws Exception;
+    public Promocion_TO consultarPromocionActiva() throws Exception;
     public Promocion_TO consultarPromocion(Promocion_TO promocion) throws Exception;
     public Promocion_TO registrarPromocion(Promocion_TO promocion) throws Exception;
     public Promocion_TO modificarPromocion(Promocion_TO promocion) throws Exception;
