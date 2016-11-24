@@ -47,7 +47,8 @@ public class RegistrarPedidoCompletoImpl implements RegistrarPedidoCompleto {
             @QueryParam("idBarrioRecogida") int idBarrioRecogida,
             @QueryParam("idBarrioEntrega") int idBarrioEntrega,            
             @QueryParam("idFormaPago") int idFormaPago,
-            @QueryParam("idEstadoPago") int idEstadoPago) throws Exception {
+            @QueryParam("idEstadoPago") int idEstadoPago, 
+            @QueryParam("costo") double costo) throws Exception {
         SimpleDateFormat formato = new SimpleDateFormat("yyyy-MM-dd");
         PedidoDAOImpl pedidoDAO = new PedidoDAOImpl();
         Date fecha = new Date();       
@@ -69,7 +70,8 @@ public class RegistrarPedidoCompletoImpl implements RegistrarPedidoCompleto {
                 new Barrio_TO(idBarrioEntrega),
                 new Usuario_TO(),
                 new FormaPago_TO(idFormaPago),
-                new EstadoPago_TO(idEstadoPago));
+                new EstadoPago_TO(idEstadoPago),
+                costo);
         } catch (ParseException e) {
             e.getMessage();
         }
