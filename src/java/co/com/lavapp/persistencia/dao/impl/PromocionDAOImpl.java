@@ -157,9 +157,16 @@ public class PromocionDAOImpl implements PromocionDAO {
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
         try {
             try {
-                String sql = "SELECT idpromocion, fechainicio, fechafinal, porcentaje, horainicio, horafinal, nombre "
-                        + " FROM  public.promocion WHERE fechainicio >= '" + sdf.format(fechaActual) + "' and fechafinal >  '" + sdf.format(fechaActual) + "'"
-                        + " AND horainicio >= '" + sdft.format(fechaActual) + "' AND horafinal > '" + sdft.format(fechaActual) + "'";
+                String sql = "SELECT idpromocion, fechainicio, fechafinal, porcentaje, horainicio, horafinal, nombre"
+                        + " FROM  public.promocion"
+                        + " WHERE"
+                        + " fechainicio < '" + sdf.format(fechaActual) + "' and fechafinal >  '" + sdf.format(fechaActual) + "' and fechainicio <> fechafinal"
+                        + " OR fechainicio = '" + sdf.format(fechaActual) + "' and fechafinal >  '" + sdf.format(fechaActual) + "' and fechainicio <> fechafinal"
+                        + " AND horainicio <= '" + sdft.format(fechaActual) + "'"
+                        + " OR fechainicio < '" + sdf.format(fechaActual) + "' and fechafinal =  '" + sdf.format(fechaActual) + "' and fechainicio <> fechafinal"
+                        + " AND horafinal > '" + sdft.format(fechaActual) + "'"
+                        + " OR fechainicio = '" + sdf.format(fechaActual) + "' and fechainicio = fechafinal"
+                        + " AND horainicio <= '" + sdft.format(fechaActual) + "' AND horafinal > '" + sdft.format(fechaActual) + "'";
                 ResultSet rs = st.executeQuery(sql);
                 while (rs.next()) {
                     nuevaPromocion = new Promocion_TO(rs.getInt(1),

@@ -89,15 +89,15 @@ public class PedidoDAOImpl implements PedidoDAO {
         List<Pedido_TO> pedidos = new ArrayList<>();
         try {
             try {
-                String sql = "SELECT idpedido, idusuario, "
-                        + "fechaInicio, horarioinicio_idhorario, "
-                        + "horariofinal_idhorario, p.idestado, idproveedor, "
-                        + "fechaentrega, direccionrecogida, direccionentrega, "
-                        + "fecharecogida, quienentrega, quienrecibe, "
-                        + "idbarrios_recogida, idbarrios_entrega, idasesor, e.nombre, idformapago, idestadopago, costo"
+                String sql = "SELECT p.idpedido, p.idusuario, "
+                        + "p.fechaInicio, p.horarioinicio_idhorario, "
+                        + "p.horariofinal_idhorario, p.idestado, p.idproveedor, "
+                        + "p.fechaentrega, p.direccionrecogida, p.direccionentrega, "
+                        + "p.fecharecogida, p.quienentrega, p.quienrecibe, "
+                        + "p.idbarrios_recogida, p.idbarrios_entrega, p.idasesor, e.nombre, p.idformapago, p.idestadopago, p.costo "
                         + "from public.pedido as p, public.estado as e WHERE "
-                        + "p.idusuario = " + usuario.getIdUsuario() + " and e.idestado = p.idestado "
-                        + "ORDER BY fechaentrega DESC, fecharecogida DESC;";
+                        + "p.idusuario = '" + usuario.getIdUsuario() + "' and e.idestado = p.idestado "
+                        + "ORDER BY p.fechaentrega DESC, p.fecharecogida DESC;";
                 ResultSet rs = st.executeQuery(sql);
                 while (rs.next()) {
 
