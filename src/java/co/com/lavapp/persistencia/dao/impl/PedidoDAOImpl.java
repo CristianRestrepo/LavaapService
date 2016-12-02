@@ -643,8 +643,8 @@ public class PedidoDAOImpl implements PedidoDAO {
     }
 
     @Override
-    public Pedido_TO registrarPedidoCompleto(Pedido_TO pedido) throws Exception {
-        Pedido_TO nuevopedido = new Pedido_TO();
+    public int registrarPedidoCompleto(Pedido_TO pedido) throws Exception {
+        int resultado = 0;
         try {
             try {
                 String sql = "INSERT INTO public.pedido(idusuario,"
@@ -681,8 +681,8 @@ public class PedidoDAOImpl implements PedidoDAO {
                         + " '" + pedido.getCosto() + "')";
 
                 st.execute(sql);
+                resultado = 1;
             } catch (Exception e) {
-                nuevopedido = new Pedido_TO();
                 throw e;
             }
         } catch (Exception e) {
@@ -690,7 +690,7 @@ public class PedidoDAOImpl implements PedidoDAO {
         } finally {
             ConexionSQL.CerrarConexion();
         }
-        return nuevopedido;
+        return resultado;
     }
 
     @Override

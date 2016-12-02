@@ -19,7 +19,7 @@ public interface PedidoDAO {
 
     public Pedido_TO registrarPedido(Pedido_TO pedido) throws Exception;
 
-    public Pedido_TO registrarPedidoCompleto(Pedido_TO pedido) throws Exception;
+    public int registrarPedidoCompleto(Pedido_TO pedido) throws Exception;
 
     public Pedido_TO eliminarPedido(Pedido_TO pedido) throws Exception;
 

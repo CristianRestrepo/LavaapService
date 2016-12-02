@@ -22,6 +22,7 @@ import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
+import javax.ws.rs.core.MediaType;
 
 /**
  *
@@ -32,9 +33,9 @@ import javax.ws.rs.QueryParam;
 public class RegistrarPedidoCompletoImpl implements RegistrarPedidoCompleto {
 
     @GET
-    @Produces({"application/json"})
+    @Produces(MediaType.TEXT_PLAIN)
     @Override
-    public Pedido_TO registrarPedidoCompleto(@QueryParam("idUsuario") int idUsuario,
+    public int registrarPedidoCompleto(@QueryParam("idUsuario") int idUsuario,
             @QueryParam("idHoraInicio") int idHoraInicio,
             @QueryParam("idHoraFinal") int idHoraFinal,
             @QueryParam("idEstado") int idEstado,

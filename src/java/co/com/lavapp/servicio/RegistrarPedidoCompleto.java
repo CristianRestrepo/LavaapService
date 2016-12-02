@@ -13,7 +13,7 @@ import co.com.lavapp.modelo.dto.Pedido_TO;
  */
 public interface RegistrarPedidoCompleto {
     
-    public Pedido_TO registrarPedidoCompleto(int idUsuario,           
+    public int registrarPedidoCompleto(int idUsuario,           
             int idHoraInicio,
             int idHoraFinal,
             int idEstado,            
